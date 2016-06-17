@@ -44,23 +44,23 @@ namespace dindin.Modules
         {
             if (cansave == false) return;
 
-            if (noteText.Text!="")
+            if (noteText.Text != "")
             {
-                if(noteName.Text.Length>2)
+                if (noteName.Text.Length > 2)
                 {
                     w = new StreamWriter("./data/notes/" + noteName.Text + ".txt");
                     w.Write(noteText.Text);
                     w.Close();
                     saveStateLabel.ForeColor = Color.Green;
                     cansave = false;
-                }             
+                }
             }
         }
 
         void loadNotes()
         {
             string[] d;
-            string[] fn = Directory.GetFiles("./data/notes/");         
+            string[] fn = Directory.GetFiles("./data/notes/");
 
             for (int i = 0; i < fn.Length; ++i)
             {
@@ -80,7 +80,7 @@ namespace dindin.Modules
             r.Close();
             saveStateLabel.Text = "Last saved: " + File.GetLastWriteTime(name);
         }
-          
+
         void notes_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode.ToString() == "Escape")
@@ -90,7 +90,7 @@ namespace dindin.Modules
         }
 
         bool found = false;
-        
+
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             found = false;
@@ -114,7 +114,7 @@ namespace dindin.Modules
                     loadNotesOnText("./data/notes/" + filenames[i] + ".txt");
                     found = true;
 
-                    othersFiles.Text += filenames[i] + ",";              
+                    if (filenames[i] != noteName.Text) othersFiles.Text += filenames[i] + ",";
                 }
             }
 

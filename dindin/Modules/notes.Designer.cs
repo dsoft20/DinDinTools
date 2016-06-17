@@ -78,11 +78,11 @@
             // othersFiles
             // 
             this.othersFiles.AutoSize = true;
-            this.othersFiles.Location = new System.Drawing.Point(336, 61);
+            this.othersFiles.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.othersFiles.Location = new System.Drawing.Point(335, 50);
             this.othersFiles.Name = "othersFiles";
-            this.othersFiles.Size = new System.Drawing.Size(36, 13);
+            this.othersFiles.Size = new System.Drawing.Size(0, 18);
             this.othersFiles.TabIndex = 4;
-            this.othersFiles.Text = "others";
             // 
             // notes
             // 
