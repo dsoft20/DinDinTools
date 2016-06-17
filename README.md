@@ -6,6 +6,7 @@ A simple keyboard-only companion program for dungeon masters!
 The project is currently in development.
 
 **Main Window:**
+
 **F1** - Opens the note window navigate window.
 
 **Note Window:**
