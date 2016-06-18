@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace dindin
 {
@@ -15,30 +16,36 @@ namespace dindin
         public Form1()
         {
             InitializeComponent();
+          
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            settings = new Settings();
             this.KeyPreview = true;
             this.KeyDown += new KeyEventHandler(Form1_KeyDown);
         }
 
+        Settings settings;
+
         void Form1_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode.ToString() == "F12")
+            if (Settings.s.ok == false) return;
+
+            if (e.KeyCode.ToString() == Settings.s.modWindow)
             {
                 Modules.calculateMod cm = new Modules.calculateMod();
                 cm.Show();
               
             }
 
-            if (e.KeyCode.ToString() == "F11")
+            if (e.KeyCode.ToString() == Settings.s.conditionWindow)
             {
                 Modules.conditions cd = new Modules.conditions();
                 cd.Show();                
             }
 
-            if (e.KeyCode.ToString()=="F1")
+            if (e.KeyCode.ToString() == Settings.s.noteWindow)
             {
                 Modules.notes nt = new Modules.notes();
                 nt.Show();

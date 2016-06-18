@@ -17,21 +17,26 @@ namespace dindin.Modules
         public conditions()
         {
             InitializeComponent();
-
-            string[] d;
-            string[]fn = Directory.GetFiles("./data/conditions/");
             
-            for (int i=0;i<fn.Length;++i)
-            {
-                d = fn[i].Split('/');
-                d = d[d.Length - 1].Split('.');
-                filenames.Add(d[0]);
-              //  filenames.Add(fn[i].Replace(".txt", ""));
-            }
+            loadConditions();
 
             this.KeyPreview = true;
             this.KeyDown += new KeyEventHandler(conditions_KeyDown);
             timer1.Stop();
+        }
+
+        void loadConditions()
+        {
+            if (!Directory.Exists("./Data/Conditions/")) Directory.CreateDirectory("./Data/Conditions/");
+            string[] d;
+            string[] fn = Directory.GetFiles("./data/conditions/");
+
+            for (int i = 0; i < fn.Length; ++i)
+            {
+                d = fn[i].Split('/');
+                d = d[d.Length - 1].Split('.');
+                filenames.Add(d[0]);
+            }
         }
 
         List<string> filenames = new List<string>();
@@ -44,10 +49,8 @@ namespace dindin.Modules
         TextReader r;
         
         void loadDescOnLabel(string name)
-        {
-  
+        {  
             r = new StreamReader(name);
-           // label1.Text = r.ReadToEnd();
             conditionText.Text = r.ReadToEnd();
             r.Close();
         }
@@ -75,7 +78,7 @@ namespace dindin.Modules
 
         void conditions_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode.ToString() == "Escape")
+            if (e.KeyCode.ToString() == Settings.s.escapeKey)
             {
                 this.Close();
             }

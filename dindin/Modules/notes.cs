@@ -17,12 +17,13 @@ namespace dindin.Modules
         public notes()
         {
             InitializeComponent();
+
             this.KeyPreview = true;
             this.KeyDown += new KeyEventHandler(notes_KeyDown);
             loadNotes();
             timer1.Stop();
             noteName.Enter += OnFocus;
-            noteText.Enter += OnFocus2;
+            noteText.Enter += OnFocus2;  
         }
 
         List<string> filenames = new List<string>();
@@ -59,6 +60,8 @@ namespace dindin.Modules
 
         void loadNotes()
         {
+            if (!Directory.Exists("./Data/Notes/")) Directory.CreateDirectory("./Data/Notes/");
+
             string[] d;
             string[] fn = Directory.GetFiles("./data/notes/");
 
@@ -83,17 +86,22 @@ namespace dindin.Modules
 
         void notes_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode.ToString() == "Escape")
+            if (e.KeyCode.ToString() == Settings.s.escapeKey)
             {
                 this.Close();
             }
+
+            if (e.KeyCode.ToString() == Settings.s.autocompletion)
+            {
+                noteName.Text = autoCompletion;
+                noteName.SelectionStart = noteName.Text.Length;
+            }
         }
 
-        bool found = false;
+        string autoCompletion = "";
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            found = false;
             othersFiles.Text = "";
 
             if (noteName.Text.Length < 3)
@@ -101,6 +109,7 @@ namespace dindin.Modules
                 saveStateLabel.Text = "";
                 noteText.Text = "";
                 noteLabelName.Text = "";
+                autoCompletion = "";
                 return;
             }
 
@@ -112,7 +121,7 @@ namespace dindin.Modules
                 {
                     noteLabelName.Text = filenames[i];
                     loadNotesOnText("./data/notes/" + filenames[i] + ".txt");
-                    found = true;
+                    autoCompletion = filenames[i];
 
                     if (filenames[i] != noteName.Text) othersFiles.Text += filenames[i] + ",";
                 }

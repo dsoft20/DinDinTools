@@ -74,6 +74,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Mod Calculator";
             this.TopMost = true;
+            this.Load += new System.EventHandler(this.calculateMod_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

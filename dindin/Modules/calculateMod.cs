@@ -44,7 +44,7 @@ namespace dindin.Modules
 
         void calculateMod_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode.ToString() == "Escape")
+            if (e.KeyCode.ToString() == Settings.s.escapeKey)
             {
                 this.Close();
             }
@@ -71,6 +71,11 @@ namespace dindin.Modules
         {
             textBox1.Select(0, textBox1.Text.Length);
             timer1.Stop();
+        }
+
+        private void calculateMod_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
