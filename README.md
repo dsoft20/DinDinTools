@@ -5,7 +5,7 @@ A simple keyboard-only companion program for dungeon masters!
 
 The project is currently in development.
 
-To test the tools simply Download the project from github and copy dindin.exe wherever you want!
+To test the tools simply Download the project from github and copy **dindin.exe** wherever you want!
 
 **Main Window:**
 
