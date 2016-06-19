@@ -67,6 +67,12 @@
     <Compile Include="Modules\conditions.Designer.cs">
       <DependentUpon>conditions.cs</DependentUpon>
     </Compile>
+    <Compile Include="Modules\keyconfig.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\keyconfig.Designer.cs">
+      <DependentUpon>keyconfig.cs</DependentUpon>
+    </Compile>
     <Compile Include="Modules\notes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -84,6 +90,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Modules\conditions.resx">
       <DependentUpon>conditions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\keyconfig.resx">
+      <DependentUpon>keyconfig.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Modules\notes.resx">
       <DependentUpon>notes.cs</DependentUpon>

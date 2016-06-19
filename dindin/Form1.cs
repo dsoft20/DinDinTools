@@ -35,20 +35,26 @@ namespace dindin
             if (e.KeyCode.ToString() == Settings.s.modWindow)
             {
                 Modules.calculateMod cm = new Modules.calculateMod();
-                cm.Show();
-              
+                cm.ShowDialog();
+
             }
 
             if (e.KeyCode.ToString() == Settings.s.conditionWindow)
             {
                 Modules.conditions cd = new Modules.conditions();
-                cd.Show();                
+                cd.ShowDialog();
             }
 
             if (e.KeyCode.ToString() == Settings.s.noteWindow)
             {
                 Modules.notes nt = new Modules.notes();
-                nt.Show();
+                nt.ShowDialog();
+            }
+
+            if (e.KeyCode.ToString() == "S")
+            {
+                Modules.keyconfig kc = new Modules.keyconfig();
+                kc.ShowDialog();
             }
         }
     }

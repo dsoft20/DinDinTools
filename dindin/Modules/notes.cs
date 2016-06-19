@@ -123,7 +123,7 @@ namespace dindin.Modules
                     loadNotesOnText("./data/notes/" + filenames[i] + ".txt");
                     autoCompletion = filenames[i];
 
-                    if (filenames[i] != noteName.Text) othersFiles.Text += filenames[i] + ",";
+                    if (filenames[i] != noteName.Text) othersFiles.Text += filenames[i] + ";";          
                 }
             }
 

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(notes));
             this.noteName = new System.Windows.Forms.TextBox();
             this.noteText = new System.Windows.Forms.TextBox();
             this.noteLabelName = new System.Windows.Forms.Label();
@@ -86,6 +87,7 @@
             // 
             // notes
             // 
+            this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(591, 471);
@@ -95,7 +97,9 @@
             this.Controls.Add(this.noteText);
             this.Controls.Add(this.noteName);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "notes";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Notes";
             this.Load += new System.EventHandler(this.notes_Load);

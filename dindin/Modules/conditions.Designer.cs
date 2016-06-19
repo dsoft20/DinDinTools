@@ -94,6 +94,7 @@
             this.Controls.Add(this.conditionName);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "conditions";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Conditions";
             this.Load += new System.EventHandler(this.conditions_Load);

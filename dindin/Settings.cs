@@ -27,7 +27,7 @@ namespace dindin
             loadConfig();
         }
 
-        void loadConfig()
+        public void loadConfig()
         {
             if (!Directory.Exists("./Data/")) Directory.CreateDirectory("./Data/");
 
@@ -36,7 +36,7 @@ namespace dindin
                 TextWriter tw = new StreamWriter("./Data/Config.txt");
 
                 tw.WriteLine("notewindow=F1");
-                tw.WriteLine("modwindow =F12");
+                tw.WriteLine("modwindow=F12");
                 tw.WriteLine("conditionwindow=F11");
                 tw.WriteLine("escape=Escape");
                 tw.WriteLine("autocompletion=Return");
@@ -62,6 +62,19 @@ namespace dindin
             tr.Close();
 
             ok = true;
+        }
+
+        public void saveConfig()
+        {
+            TextWriter tw = new StreamWriter("./Data/Config.txt");
+
+            tw.WriteLine("notewindow=" + noteWindow);
+            tw.WriteLine("modwindow=" + modWindow);
+            tw.WriteLine("conditionwindow=" + conditionWindow);
+            tw.WriteLine("escape=" + escapeKey);
+            tw.WriteLine("autocompletion=" + autocompletion);
+
+            tw.Close();
         }
     }
 }
