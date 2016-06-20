@@ -56,6 +56,12 @@ namespace dindin
                 Modules.keyconfig kc = new Modules.keyconfig();
                 kc.ShowDialog();
             }
+
+            if (e.KeyCode.ToString() == Settings.s.dicerollWindow)
+            {
+                Modules.diceRoller dr = new Modules.diceRoller();
+                dr.ShowDialog();
+            }
         }
     }
 }

@@ -11,8 +11,10 @@ namespace dindin
         public string modWindow = "F12";
         public string conditionWindow = "F11";
         public string noteWindow = "F1";
+        public string dicerollWindow = "F3";
         public string escapeKey = "Escape";
         public string autocompletion = "Return";
+
 
         public bool ok = false;
         TextReader tr;
@@ -39,6 +41,7 @@ namespace dindin
                 tw.WriteLine("conditionwindow=F11");
                 tw.WriteLine("escape=Escape");
                 tw.WriteLine("autocompletion=Return");
+                tw.WriteLine("dicerollwindow=F3");
 
                 tw.Close();
             }
@@ -53,6 +56,7 @@ namespace dindin
                 if (d[0] == "notewindow") noteWindow = d[1];
                 if (d[0] == "modwindow") modWindow = d[1];
                 if (d[0] == "conditionwindow") conditionWindow = d[1];
+                if (d[0] == "dicerollwindow") dicerollWindow = d[1];
                 if (d[0] == "escape") escapeKey = d[1];
 
                 line = tr.ReadLine();
@@ -72,6 +76,7 @@ namespace dindin
             tw.WriteLine("conditionwindow=" + conditionWindow);
             tw.WriteLine("escape=" + escapeKey);
             tw.WriteLine("autocompletion=" + autocompletion);
+            tw.WriteLine("diceroller=" + dicerollWindow);
 
             tw.Close();
         }

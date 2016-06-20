@@ -19,14 +19,16 @@ namespace dindin.Modules
             noteWindow.Text = Settings.s.noteWindow;
             modwindow.Text = Settings.s.modWindow;
             conditionwindow.Text = Settings.s.conditionWindow;
+            dicerollwindow.Text = Settings.s.dicerollWindow;
             escape.Text = Settings.s.escapeKey;
 
-            usedKeys = new String[5];
+            usedKeys = new String[6];
             usedKeys[0] = Settings.s.noteWindow;
             usedKeys[1] = Settings.s.modWindow;
             usedKeys[2] = Settings.s.conditionWindow;
             usedKeys[3] = Settings.s.escapeKey;
             usedKeys[4] = "S";
+            usedKeys[5] = "Back";
 
             this.KeyPreview = true;
             this.KeyDown += new KeyEventHandler(keyconfig_KeyDown);
@@ -77,13 +79,23 @@ namespace dindin.Modules
                     {
                         conditionwindow.Text = e.KeyCode.ToString();
                         conditionwindow.ForeColor = Color.Black;
-                        escape.ForeColor = Color.Red;
+                         dicerollwindow.ForeColor = Color.Red;
                         indexKey++;
                     }
                     break;
 
                 case 3:
                     if (isLegitKey(e.KeyCode.ToString(), 3))
+                    {
+                        dicerollwindow.Text = e.KeyCode.ToString();
+                        dicerollwindow.ForeColor = Color.Black;
+                        escape.ForeColor = Color.Red;
+                        indexKey++;
+                    }
+                    break;
+
+                case 4:
+                    if (isLegitKey(e.KeyCode.ToString(), 4))
                     {
                         escape.Text = e.KeyCode.ToString();
                         escape.ForeColor = Color.Black;
@@ -94,15 +106,12 @@ namespace dindin.Modules
                         Settings.s.modWindow = modwindow.Text;
                         Settings.s.conditionWindow = conditionwindow.Text;
                         Settings.s.escapeKey = escape.Text;
-
+                        Settings.s.dicerollWindow = dicerollwindow.Text;
                         Settings.s.saveConfig();
                         Settings.s.loadConfig();
                     }
                     break;
 
-                case 4:
-
-                    break;
             }
         }
 

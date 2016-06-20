@@ -68,6 +68,12 @@
     <Compile Include="Modules\conditions.Designer.cs">
       <DependentUpon>conditions.cs</DependentUpon>
     </Compile>
+    <Compile Include="Modules\diceRoller.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\diceRoller.Designer.cs">
+      <DependentUpon>diceRoller.cs</DependentUpon>
+    </Compile>
     <Compile Include="Modules\keyconfig.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -91,6 +97,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Modules\conditions.resx">
       <DependentUpon>conditions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\diceRoller.resx">
+      <DependentUpon>diceRoller.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Modules\keyconfig.resx">
       <DependentUpon>keyconfig.cs</DependentUpon>
@@ -127,7 +136,8 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>xcopy "$(TargetDir)dindin.exe" "$(SolutionDir)"</PostBuildEvent>
+    <PostBuildEvent>del $(SolutionDir)dindin.exe
+xcopy "$(TargetDir)dindin.exe" "$(SolutionDir)" /C /K</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
