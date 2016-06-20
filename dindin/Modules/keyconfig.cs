@@ -21,11 +21,12 @@ namespace dindin.Modules
             conditionwindow.Text = Settings.s.conditionWindow;
             escape.Text = Settings.s.escapeKey;
 
-            usedKeys = new String[4];
+            usedKeys = new String[5];
             usedKeys[0] = Settings.s.noteWindow;
             usedKeys[1] = Settings.s.modWindow;
             usedKeys[2] = Settings.s.conditionWindow;
             usedKeys[3] = Settings.s.escapeKey;
+            usedKeys[4] = "S";
 
             this.KeyPreview = true;
             this.KeyDown += new KeyEventHandler(keyconfig_KeyDown);
