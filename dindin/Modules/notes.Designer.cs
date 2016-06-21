@@ -36,6 +36,7 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.saveStateLabel = new System.Windows.Forms.Label();
             this.othersFiles = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // noteName
@@ -85,12 +86,22 @@
             this.othersFiles.Size = new System.Drawing.Size(0, 18);
             this.othersFiles.TabIndex = 4;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(335, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(70, 13);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Loaded note:";
+            // 
             // notes
             // 
             this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(591, 471);
+            this.ClientSize = new System.Drawing.Size(591, 464);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.othersFiles);
             this.Controls.Add(this.saveStateLabel);
             this.Controls.Add(this.noteLabelName);
@@ -116,5 +127,6 @@
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label saveStateLabel;
         private System.Windows.Forms.Label othersFiles;
+        private System.Windows.Forms.Label label1;
     }
 }

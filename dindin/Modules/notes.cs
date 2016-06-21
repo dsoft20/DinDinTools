@@ -46,7 +46,7 @@ namespace dindin.Modules
 
             if (noteText.Text != "")
             {                
-                if (noteName.Text.Length > 2)
+                if (noteName.Text.Length > 0)
                 {
                     bool exists = true;
                     if (!File.Exists("./Data/Notes/" + noteName.Text + ".txt")) exists = false;
@@ -120,7 +120,7 @@ namespace dindin.Modules
         {
             othersFiles.Text = "";
 
-            if (noteName.Text.Length < 3)
+            if (noteName.Text.Length == 0)
             {
                 saveStateLabel.Text = "";
                 noteText.Text = "";
