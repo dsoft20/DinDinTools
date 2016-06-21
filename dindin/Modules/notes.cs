@@ -45,24 +45,32 @@ namespace dindin.Modules
             if (cansave == false) return;
 
             if (noteText.Text != "")
-            {
+            {                
                 if (noteName.Text.Length > 2)
                 {
-                    w = new StreamWriter("./data/notes/" + noteName.Text + ".txt");
+                    bool exists = true;
+                    if (!File.Exists("./Data/Notes/" + noteName.Text + ".txt")) exists = false;
+
+                    w = new StreamWriter("./Data/Notes/" + noteName.Text + ".txt");
                     w.Write(noteText.Text);
                     w.Close();
                     saveStateLabel.ForeColor = Color.Green;
                     cansave = false;
+
+                    if (!exists) loadNotes();
                 }
             }
+
+            loadNote();
         }
 
         void loadNotes()
         {
             if (!Directory.Exists("./Data/Notes/")) Directory.CreateDirectory("./Data/Notes/");
-
+                      
             string[] d;
             string[] fn = Directory.GetFiles("./data/notes/");
+            filenames.Clear();
 
             for (int i = 0; i < fn.Length; ++i)
             {
@@ -92,6 +100,7 @@ namespace dindin.Modules
 
             if (e.KeyCode.ToString() == Settings.s.autocompletion)
             {
+                if (!noteName.Focused) return;
                 noteName.Text = autoCompletion;
                 noteName.SelectionStart = noteName.Text.Length;
             }
@@ -99,7 +108,15 @@ namespace dindin.Modules
 
         string autoCompletion = "";
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        int clamp(int _value, int _min, int _max)
+        {
+            if (_value < _min) return _min;
+            if (_value > _max) return _max;
+
+            return _value;
+        }
+
+        void loadNote()
         {
             othersFiles.Text = "";
 
@@ -115,18 +132,23 @@ namespace dindin.Modules
             timer1.Start();
 
             for (int i = filenames.Count - 1; i >= 0; i -= 1)
-            {
-                if (filenames[i].Contains(noteName.Text))
+            {      
+                if (filenames[i].Substring(0, clamp(noteName.Text.Length, 0, filenames[i].Length)) == noteName.Text)
                 {
                     noteLabelName.Text = filenames[i];
                     loadNotesOnText("./data/notes/" + filenames[i] + ".txt");
                     autoCompletion = filenames[i];
 
-                    if (filenames[i] != noteName.Text) othersFiles.Text += filenames[i] + ";";          
+                    if (filenames[i] != noteName.Text) othersFiles.Text += filenames[i] + ";";
                 }
             }
 
             saveStateLabel.ForeColor = Color.Black;
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            loadNote();
         }
 
         private void noteText_TextChanged(object sender, EventArgs e)

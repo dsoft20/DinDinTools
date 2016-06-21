@@ -48,7 +48,6 @@ namespace dindin.Modules
         
         void diceRoller_KeyDown(object sender, KeyEventArgs e)
         {
-
             if (e.KeyCode.ToString() == Settings.s.escapeKey) this.Close();
 
             if (e.KeyCode.ToString() == "Back")
