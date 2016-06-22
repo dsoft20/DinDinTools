@@ -76,7 +76,7 @@ namespace dindin
             tw.WriteLine("conditionwindow=" + conditionWindow);
             tw.WriteLine("escape=" + escapeKey);
             tw.WriteLine("autocompletion=" + autocompletion);
-            tw.WriteLine("diceroller=" + dicerollWindow);
+            tw.WriteLine("dicerollwindow=" + dicerollWindow);
 
             tw.Close();
         }

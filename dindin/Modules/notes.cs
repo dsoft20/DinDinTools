@@ -43,9 +43,14 @@ namespace dindin.Modules
         private void OnFocus(object sender, EventArgs e)
         {
             if (cansave == false) return;
+            saveNote();
+            loadNote();
+        }
 
+        public void saveNote()
+        {
             if (noteText.Text != "")
-            {                
+            {
                 if (noteName.Text.Length > 0)
                 {
                     bool exists = true;
@@ -60,16 +65,14 @@ namespace dindin.Modules
                     if (!exists) loadNotes();
                 }
             }
-
-            loadNote();
         }
 
-        void loadNotes()
+        public void loadNotes()
         {
             if (!Directory.Exists("./Data/Notes/")) Directory.CreateDirectory("./Data/Notes/");
                       
             string[] d;
-            string[] fn = Directory.GetFiles("./data/notes/");
+            string[] fn = Directory.GetFiles("./Data/Notes/");
             filenames.Clear();
 
             for (int i = 0; i < fn.Length; ++i)
@@ -83,7 +86,7 @@ namespace dindin.Modules
         TextReader r;
         TextWriter w;
 
-        void loadNotesOnText(string name)
+        public void loadNotesOnText(string name)
         {
             r = new StreamReader(name);
             noteText.Text = r.ReadToEnd();
@@ -93,6 +96,15 @@ namespace dindin.Modules
 
         void notes_KeyDown(object sender, KeyEventArgs e)
         {
+            if (e.KeyCode.ToString() == "ControlKey")
+            {
+                if (noteText.Focused)
+                {
+                    linkedNotes ln = new linkedNotes(noteText.Text, this);
+                    ln.ShowDialog();
+                }
+            }
+
             if (e.KeyCode.ToString() == Settings.s.escapeKey)
             {
                 this.Close();

@@ -37,12 +37,13 @@
             this.saveStateLabel = new System.Windows.Forms.Label();
             this.othersFiles = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // noteName
             // 
             this.noteName.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.noteName.Location = new System.Drawing.Point(12, 12);
+            this.noteName.Location = new System.Drawing.Point(12, 16);
             this.noteName.Name = "noteName";
             this.noteName.Size = new System.Drawing.Size(305, 38);
             this.noteName.TabIndex = 0;
@@ -51,7 +52,7 @@
             // noteText
             // 
             this.noteText.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.noteText.Location = new System.Drawing.Point(12, 77);
+            this.noteText.Location = new System.Drawing.Point(12, 76);
             this.noteText.Multiline = true;
             this.noteText.Name = "noteText";
             this.noteText.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -63,25 +64,28 @@
             // 
             this.noteLabelName.AutoSize = true;
             this.noteLabelName.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.noteLabelName.Location = new System.Drawing.Point(332, 9);
+            this.noteLabelName.Location = new System.Drawing.Point(335, 13);
             this.noteLabelName.Name = "noteLabelName";
             this.noteLabelName.Size = new System.Drawing.Size(0, 37);
             this.noteLabelName.TabIndex = 2;
             // 
             // saveStateLabel
             // 
+            this.saveStateLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.saveStateLabel.AutoSize = true;
             this.saveStateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.saveStateLabel.Location = new System.Drawing.Point(9, 53);
+            this.saveStateLabel.Location = new System.Drawing.Point(21, 57);
             this.saveStateLabel.Name = "saveStateLabel";
             this.saveStateLabel.Size = new System.Drawing.Size(0, 16);
             this.saveStateLabel.TabIndex = 3;
             // 
             // othersFiles
             // 
+            this.othersFiles.AutoEllipsis = true;
             this.othersFiles.AutoSize = true;
             this.othersFiles.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.othersFiles.Location = new System.Drawing.Point(335, 50);
+            this.othersFiles.Location = new System.Drawing.Point(12, 459);
             this.othersFiles.Name = "othersFiles";
             this.othersFiles.Size = new System.Drawing.Size(0, 18);
             this.othersFiles.TabIndex = 4;
@@ -95,12 +99,23 @@
             this.label1.TabIndex = 5;
             this.label1.Text = "Loaded note:";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(12, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(62, 13);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "Note name:";
+            // 
             // notes
             // 
             this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(591, 464);
+            this.ClientSize = new System.Drawing.Size(591, 486);
+            this.ControlBox = false;
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.othersFiles);
             this.Controls.Add(this.saveStateLabel);
@@ -120,13 +135,13 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox noteName;
-        private System.Windows.Forms.TextBox noteText;
         private System.Windows.Forms.Label noteLabelName;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label saveStateLabel;
         private System.Windows.Forms.Label othersFiles;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        public System.Windows.Forms.TextBox noteName;
+        public System.Windows.Forms.TextBox noteText;
     }
 }
