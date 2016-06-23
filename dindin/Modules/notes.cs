@@ -90,12 +90,20 @@ namespace dindin.Modules
         {
             r = new StreamReader(name);
             noteText.Text = r.ReadToEnd();
+            richNotes.Text = noteText.Text;
             r.Close();
             saveStateLabel.Text = "Last saved: " + File.GetLastWriteTime(name);
         }
 
         void notes_KeyDown(object sender, KeyEventArgs e)
         {
+
+            if (e.KeyCode.ToString() == "F9")
+            {
+                exporters ex = new exporters();
+                ex.notesToHTML();
+            }
+
             if (e.KeyCode.ToString() == "ControlKey")
             {
                 if (noteText.Focused)

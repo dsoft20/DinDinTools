@@ -30,6 +30,18 @@ namespace dindin.Modules
         List<string> links = new List<string>();
         notes n;
 
+        void addLinkedNote(string _s)
+        {
+            string nn = _s;
+            nn = nn.Replace('\n', ' ');
+            nn = nn.Replace('\r', ' ');
+            nn = nn.TrimEnd();
+
+            if (links.Contains(nn)) return;
+
+            links.Add(nn);
+        }
+
         void parseLinks(string _textToCheck)
         {
             string t = _textToCheck;
@@ -70,11 +82,11 @@ namespace dindin.Modules
 
                     if (eof)
                     {
-                        links.Add(t.Substring(index + 1, delta));
+                        addLinkedNote(t.Substring(index + 1, delta));
                     }
                     else
                     {
-                        links.Add(t.Substring(index + 1, delta - 1));
+                        addLinkedNote(t.Substring(index + 1, delta - 1));
                     }
 
                     index = 0;
@@ -110,6 +122,7 @@ namespace dindin.Modules
             n.loadNotesOnText("./Data/Notes/" + nn + ".txt");
             n.noteText.Focus();
             n.noteText.SelectionStart = n.noteText.Text.Length;
+            links.Clear();
         }
 
         void linkedNotes_KeyDown(object sender, KeyEventArgs e)

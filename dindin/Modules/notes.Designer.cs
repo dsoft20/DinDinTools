@@ -38,6 +38,7 @@
             this.othersFiles = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.richNotes = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
             // 
             // noteName
@@ -108,6 +109,15 @@
             this.label2.TabIndex = 6;
             this.label2.Text = "Note name:";
             // 
+            // richNotes
+            // 
+            this.richNotes.Location = new System.Drawing.Point(12, 76);
+            this.richNotes.Name = "richNotes";
+            this.richNotes.Size = new System.Drawing.Size(567, 380);
+            this.richNotes.TabIndex = 7;
+            this.richNotes.Text = "";
+            this.richNotes.Visible = false;
+            // 
             // notes
             // 
             this.AllowDrop = true;
@@ -115,6 +125,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(591, 486);
             this.ControlBox = false;
+            this.Controls.Add(this.richNotes);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.othersFiles);
@@ -143,5 +154,6 @@
         private System.Windows.Forms.Label label2;
         public System.Windows.Forms.TextBox noteName;
         public System.Windows.Forms.TextBox noteText;
+        private System.Windows.Forms.RichTextBox richNotes;
     }
 }
